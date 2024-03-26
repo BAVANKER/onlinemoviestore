@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} detail {% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.name }}</h5>
+        <img class="card-img-top" style="height: 16rem;padding:5px;" src="{{movie.img.url}}" alt="Card image cap">
+          <a href="/" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">This movie is relaesed in: {{ movie.year }}</h5>
+        <p class="card-text">{{ movie.detail }}</p>
+        <a href="{% url 'movieapp:edit' movie.id %}" class="btn btn-success">Edit</a>
+        <a href="{% url 'movieapp:delete' movie.id %}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+{% endblock %}
